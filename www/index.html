@@ -1,0 +1,99 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<title>p20</title>	
+<script src='src/libMy/AppLoader.js'></script>
+<script src='src/lib/jquery-1.11.3.js'></script>
+<script src='src/lib/tween.min.js'></script>
+<script src='src/lib/three.min.js'></script>
+<script src='src/libMy/divLib.js'></script>
+<script src='src/libMy/divLibPlus.js'></script>
+<script src='src/lib/pixi.js'></script>
+<script src='src/lib/loaders/GLTFLoader.js'></script>
+
+<script type="module">
+
+	import { Main } from './src/piramidka/Main.js';
+
+
+
+
+
+	window.trace = window.console.log.bind(window.console);
+
+	var dcmParam;	
+	var appLoader;
+	var path="src/"
+	var plus=""//"?"+Math.random();
+	var manifest = [
+		/*{src: path + 'libMy/divLib.js'},		
+		{src: path + 'lib/jquery-1.11.3.js'},
+		{src: path + 'lib/three.min.js'},
+		{src: path + 'lib/pixi.js'},
+		{src: path + '/lib/tween.min.js'},
+		{src: path + 'lib/loaders/GLTFLoader.js'},*/
+
+		//{src: 'resources/font/montserrat-bold.ttf', type:"FontFace", name:'Montserrat'},		
+	    {src: 'resources/font/montserrat-regular.ttf', type:"FontFace", name:'Montserrat'},
+
+		//{src:'build/p20.min.js' + plus}
+	];
+
+
+
+	var main
+	function sizeWindow () {
+		var w = document.documentElement.clientWidth;
+		var h = document.documentElement.clientHeight;
+		if (main) main.sizeWindow(w, h);		
+		if (appLoader) appLoader.sizeWindow(w,h);
+
+	}
+
+
+	function init () {
+		window.onresize = sizeWindow;	
+		dcmParam = new DCM();				
+		main=new Main(function(s, p){				
+			if(s=="init"){			
+				sizeWindow()
+				//main.setComand("initGalleres")						
+			}		
+		})				
+					
+			
+		sizeWindow();		
+	}
+
+	document.addEventListener("DOMContentLoaded", function() {
+		init()
+	})
+
+
+
+
+</script>
+
+<style type="text/css">
+	#stats { position: absolute; top:0; left: 200px; }	
+	@font-face {
+	  font-family: "Montserrat";
+	  src: url(resources/font/montserrat-regular.ttf) format("truetype");
+	}
+
+	@font-face {
+	  font-family: "SFUIDisplay-Bold";
+	  src: url(resources/font/SFUIDisplay-Bold.ttf) format("truetype");
+	}
+	
+	@font-face {
+	  font-family: "SFUIDisplay-Light";
+	  src: url(resources/font/SFUIDisplay-Light.ttf) format("truetype");
+	}
+</style>
+</head>
+<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+<body >
+	<video id="video" autoplay playsinline></video>	
+
+</body></html>
