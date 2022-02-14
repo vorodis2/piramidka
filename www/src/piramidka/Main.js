@@ -60,7 +60,6 @@ export class Main  {
 		};
 
 		this.fina = function () { 
-			trace("!!!!!")
 			self.glaf=new Glaf(this);
 		    fun("init");  
         	

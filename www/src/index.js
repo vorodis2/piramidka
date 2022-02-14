@@ -1,3 +1,3 @@
-import {Main} from './view/Main.js';
+import {Main} from './piramidka/Main.js';
 global.Main = Main;
 export {Main};
